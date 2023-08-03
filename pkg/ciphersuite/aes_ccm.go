@@ -94,6 +94,7 @@ func (c *AesCcm) Init(masterSecret, clientRandom, serverRandom []byte, isClient 
 
 // Encrypt encrypts a single TLS RecordLayer
 func (c *AesCcm) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, error) {
+	fmt.Printf("%s: encrypt invoked......................\n", c.String())
 	cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
 	if !ok {
 		return nil, fmt.Errorf("%w, unable to encrypt", errCipherSuiteNotInit)
@@ -104,6 +105,7 @@ func (c *AesCcm) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, erro
 
 // Decrypt decrypts a single TLS RecordLayer
 func (c *AesCcm) Decrypt(raw []byte) ([]byte, error) {
+	fmt.Printf("%s: decrypt invoked......................\n", c.String())
 	cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
 	if !ok {
 		return nil, fmt.Errorf("%w, unable to decrypt", errCipherSuiteNotInit)

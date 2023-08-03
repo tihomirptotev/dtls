@@ -89,6 +89,7 @@ func (c *TLSEcdheEcdsaWithAes128GcmSha256) Init(masterSecret, clientRandom, serv
 
 // Encrypt encrypts a single TLS RecordLayer
 func (c *TLSEcdheEcdsaWithAes128GcmSha256) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, error) {
+	fmt.Printf("%s: encrypt invoked..................\n", c.String())
 	cipherSuite, ok := c.gcm.Load().(*ciphersuite.GCM)
 	if !ok {
 		return nil, fmt.Errorf("%w, unable to encrypt", errCipherSuiteNotInit)
@@ -99,6 +100,7 @@ func (c *TLSEcdheEcdsaWithAes128GcmSha256) Encrypt(pkt *recordlayer.RecordLayer,
 
 // Decrypt decrypts a single TLS RecordLayer
 func (c *TLSEcdheEcdsaWithAes128GcmSha256) Decrypt(raw []byte) ([]byte, error) {
+	fmt.Printf("%s: decrypt invoked..................\n", c.String())
 	cipherSuite, ok := c.gcm.Load().(*ciphersuite.GCM)
 	if !ok {
 		return nil, fmt.Errorf("%w, unable to decrypt", errCipherSuiteNotInit)
