@@ -94,22 +94,28 @@ func (c *AesCcm) Init(masterSecret, clientRandom, serverRandom []byte, isClient 
 
 // Encrypt encrypts a single TLS RecordLayer
 func (c *AesCcm) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, error) {
-	fmt.Printf("%s: encrypt invoked......................\n", c.String())
-	cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
-	if !ok {
-		return nil, fmt.Errorf("%w, unable to encrypt", errCipherSuiteNotInit)
-	}
+	fmt.Printf("%s: encrypt invoked with no encryption......................\n", c.String())
+	result := make([]byte, len(raw))
+	copy(result, raw)
+	return result, nil
+	// cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
+	// if !ok {
+	// 	return nil, fmt.Errorf("%w, unable to encrypt", errCipherSuiteNotInit)
+	// }
 
-	return cipherSuite.Encrypt(pkt, raw)
+	// return cipherSuite.Encrypt(pkt, raw)
 }
 
 // Decrypt decrypts a single TLS RecordLayer
 func (c *AesCcm) Decrypt(raw []byte) ([]byte, error) {
-	fmt.Printf("%s: decrypt invoked......................\n", c.String())
-	cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
-	if !ok {
-		return nil, fmt.Errorf("%w, unable to decrypt", errCipherSuiteNotInit)
-	}
+	fmt.Printf("%s: decrypt invoked with no encryption......................\n", c.String())
+	result := make([]byte, len(raw))
+	copy(result, raw)
+	return result, nil
+	// cipherSuite, ok := c.ccm.Load().(*ciphersuite.CCM)
+	// if !ok {
+	// 	return nil, fmt.Errorf("%w, unable to decrypt", errCipherSuiteNotInit)
+	// }
 
-	return cipherSuite.Decrypt(raw)
+	// return cipherSuite.Decrypt(raw)
 }
