@@ -5,6 +5,7 @@ package ciphersuite
 
 import (
 	"crypto/sha256"
+	"fmt"
 	"hash"
 	"sync/atomic"
 
@@ -87,6 +88,8 @@ func (c *AesCcm) Init(masterSecret, clientRandom, serverRandom []byte, isClient 
 		ccm, err = ciphersuite.NewCCM(c.cryptoCCMTagLen, keys.ServerWriteKey, keys.ServerWriteIV, keys.ClientWriteKey, keys.ClientWriteIV)
 	}
 	c.ccm.Store(ccm)
+
+	fmt.Printf("%s: Init invoked with no encryption......................\n", c.String())
 
 	return err
 }
