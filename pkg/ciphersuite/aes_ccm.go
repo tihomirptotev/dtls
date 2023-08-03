@@ -5,7 +5,6 @@ package ciphersuite
 
 import (
 	"crypto/sha256"
-	"fmt"
 	"hash"
 	"sync/atomic"
 
@@ -94,7 +93,7 @@ func (c *AesCcm) Init(masterSecret, clientRandom, serverRandom []byte, isClient 
 
 // Encrypt encrypts a single TLS RecordLayer
 func (c *AesCcm) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, error) {
-	fmt.Printf("%s: encrypt invoked with no encryption......................\n", c.String())
+	// fmt.Printf("%s: encrypt invoked with no encryption......................\n", c.String())
 	result := make([]byte, len(raw))
 	copy(result, raw)
 	return result, nil
@@ -108,7 +107,7 @@ func (c *AesCcm) Encrypt(pkt *recordlayer.RecordLayer, raw []byte) ([]byte, erro
 
 // Decrypt decrypts a single TLS RecordLayer
 func (c *AesCcm) Decrypt(raw []byte) ([]byte, error) {
-	fmt.Printf("%s: decrypt invoked with no encryption......................\n", c.String())
+	// fmt.Printf("%s: decrypt invoked with no encryption......................\n", c.String())
 	result := make([]byte, len(raw))
 	copy(result, raw)
 	return result, nil
