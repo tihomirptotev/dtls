@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pion/dtls/v2/internal/ciphersuite"
 	"github.com/pion/transport/v2/dpipe"
 	"github.com/pion/transport/v2/test"
+	"github.com/tihomirptotev/dtls/v2/pkg/ciphersuite"
 )
 
 func TestCipherSuiteName(t *testing.T) {

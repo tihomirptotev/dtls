@@ -13,8 +13,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/pion/dtls/v2/pkg/crypto/elliptic"
 	"github.com/pion/logging"
+	"github.com/tihomirptotev/dtls/v2/pkg/crypto/elliptic"
 )
 
 const keyLogLabelTLS12 = "CLIENT_RANDOM"

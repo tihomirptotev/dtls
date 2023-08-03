@@ -6,7 +6,7 @@ package handshake
 import (
 	"encoding/binary"
 
-	"github.com/pion/dtls/v2/internal/ciphersuite/types"
+	"github.com/tihomirptotev/dtls/v2/pkg/ciphersuite/types"
 )
 
 // MessageClientKeyExchange is a DTLS Handshake Message

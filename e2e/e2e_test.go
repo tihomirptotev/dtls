@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pion/dtls/v2"
-	"github.com/pion/dtls/v2/pkg/crypto/selfsign"
 	"github.com/pion/transport/v2/test"
+	"github.com/tihomirptotev/dtls/v2"
+	"github.com/tihomirptotev/dtls/v2/pkg/crypto/selfsign"
 )
 
 const (

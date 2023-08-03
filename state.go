@@ -8,10 +8,10 @@ import (
 	"encoding/gob"
 	"sync/atomic"
 
-	"github.com/pion/dtls/v2/pkg/crypto/elliptic"
-	"github.com/pion/dtls/v2/pkg/crypto/prf"
-	"github.com/pion/dtls/v2/pkg/protocol/handshake"
 	"github.com/pion/transport/v2/replaydetector"
+	"github.com/tihomirptotev/dtls/v2/pkg/crypto/elliptic"
+	"github.com/tihomirptotev/dtls/v2/pkg/crypto/prf"
+	"github.com/tihomirptotev/dtls/v2/pkg/protocol/handshake"
 )
 
 // State holds the dtls connection state and implements both encoding.BinaryMarshaler and encoding.BinaryUnmarshaler
